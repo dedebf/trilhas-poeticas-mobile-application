@@ -1,0 +1,91 @@
+<style type="text/css">
+	ion-header-bar > button.back-button{
+		display: block !important;
+	}
+	ion-header-bar > div.buttons.buttons-left.header-item, ion-header-bar > div.buttons.buttons-right.header-item{
+		display: none;
+	}
+	.poi-link img{
+		width: 100%;
+	}
+	#poi-grid .col{
+		padding: 0 1px;
+	}
+	#poi-grid .row{
+		padding: 0px 5px;
+		margin-bottom: -3px;
+	}
+	.bar-stable.bar.bar-header {
+		width: 80%; 
+	}
+
+	body.platform-ipad #poi-grid{
+		margin-left: 8px;
+	}
+	body.platform-ipad .poi-grid.clear{
+		max-width: 150px;
+		display: inline-block;
+		clear: none;
+	}
+
+</style>
+<a ui-sref="app.denuncia({trilhaId: currentTrack.ID, pontoId: currentPoi.ID})" class="report {{descToggleEl}}"><h4>Denunciar</h4></a>
+<ion-view view-title="Trilha">
+	<ion-nav-title>Trilha</ion-nav-title>
+  <ion-content class='has-header'>
+  	<div class="header-expanded {{expanded}} clear" ng-click="descriptionToggle()">
+		<h1 class="page-title left">{{trilha.TRACK_NAME}}</h1>
+		<a class="desc-toogle-btn right ">
+			<img src="{{descToggleArrow}}" class="toggle-arrow">
+		</a>
+	</div>
+    <div ng-class="descClass" class="description">
+		<img ng-src="{{trackIcon}}" src="{{trackIcon}}" class="img-track-desc clear {{descToggleEl}}">
+    	<p>{{trilha.DESCRIPTION}}</p>
+    	<div class="tag-wrapper clear {{descToggleEl}}">
+    		<a href="#/app/etiqueta/{{tag}}" ng-repeat="tag in tags" class="track-tag">
+    			<p>{{tag}}  </p>
+    		</a>
+	    	<a href="#/app/clIndicativa/{{trilha.PARENTAL_RATING}}" class="track-tag img-ci-tag" ng-style="{'background-image':'url('+urlClassIndicArray[trilha.PARENTAL_RATING]+')'}">
+	    		<img ng-src="{{urlClassIndicArray[trilha.PARENTAL_RATING]}}" class="desc-img-ci">
+	    	</a>
+    	</div>
+    	<div id="map" data-tap-disabled="true" class="clear"></div>
+    	<a href="#/app/autor/{{trilha.A_ID}}" class="{{descToggleEl}} track-title"><h2 class="track-title">{{trilha.A_F_NAME}} {{trilha.A_L_NAME}}</h2 class="track-title"></a>
+    </div>
+    <div id="poi-grid" ng-if="!isIPad">
+    	<div class="poi-grid clear" ng-repeat="ponto in pontos | orderBy:'-PLACING'"">
+    		<div class="row" ng-if="$index % 3 == 0 ">
+	    		<div class="col col-33" ng-if="pontos[$index]">
+					<a class="poi-link" ng-href=""
+			    	ng-click="poiClick(pontos[$index])">
+			    		<img ng-src="{{pontos[$index].imgUrl}}">
+			    	</a>
+				</div>
+				<div class="col col-33" ng-if="pontos[$index+1]">
+					<a class="poi-link" ng-href=""
+			    	ng-click="poiClick(pontos[$index+1])">
+			    		<img ng-src="{{pontos[$index+1].imgUrl}}">
+			    	</a>
+				</div>
+				<div class="col col-33" ng-if="pontos[$index+2]">
+					<a class="poi-link" ng-href=""
+			    	ng-click="poiClick(pontos[$index+2])">
+			    		<img ng-src="{{pontos[$index+2].imgUrl}}">
+			    	</a>
+				</div>
+    		</div>
+    	</div>
+	</div>
+	<div id="poi-grid" ng-if="isIPad">
+    	<div class="poi-grid clear" ng-repeat="ponto in pontos | orderBy:'-PLACING'"">
+    		<div class="col" ng-if="pontos[$index]">
+				<a class="poi-link" ng-href=""
+		    	ng-click="poiClick(pontos[$index])">
+		    		<img ng-src="{{pontos[$index].imgUrl}}">
+		    	</a>
+			</div>
+    	</div>
+    </div>
+  </ion-content>
+</ion-view>

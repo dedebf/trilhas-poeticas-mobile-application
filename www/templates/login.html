@@ -1,0 +1,48 @@
+<style type="text/css">
+  .input-label{
+    width: auto;
+  }
+  input[type="email"]{
+    margin-right: 10px;
+  }
+  body > div.modal-backdrop.active > div.modal-wrapper > ion-modal-view > ion-header-bar > div{
+    position: absolute;
+    right: 10px;
+  }
+  .close-modal{
+    position: absolute;
+    top: 25px;
+    right: 10px;
+  }
+  .email-label{
+    margin-right: 10px !important;
+    margin-left: 0px !important;
+  }
+  .button-save-mail{
+    background-color: #991B3E;
+    color: white;
+  }
+</style>
+<ion-modal-view>
+  <ion-content>
+    <div class="title-bar">
+      <h1 class="page-title">Cadastro de email</h1>
+      <div class="buttons">
+        <a class="close-modal" ng-click="closeLogin()">
+          <img class="toggle-arrow" src="img/close_modal.png">
+        </a>
+      </div>
+    </div>
+    <div id="login">
+      <div class="list">
+        <label class="item item-input">
+          <h3 class="email-label">email</h3>
+          <input type="email" name="input" ng-model="loginData.email" required>
+        </label>
+        <label class="item">
+          <button class="button button-block button-save-mail" ng-click="doLogin()" ng-show="!loginForm.$error.required" ng-disabled="loginForm.$error.email">Salvar</button>
+        </label>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

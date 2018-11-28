@@ -1,0 +1,77 @@
+<style type="text/css">
+	ion-header-bar > button.back-button{
+		display: block !important;
+	}
+	ion-header-bar > div.buttons.buttons-left.header-item, ion-header-bar > div.buttons.buttons-right.header-item{
+		display: none;
+	}
+	.parental-rating-icon{
+		width: 43px;
+		position: absolute;
+		left: 15px;
+		top: 20px;
+		border-radius: 50%;
+	}
+	.parental-rating-page-title{
+		text-align: center;
+		width: 100%;
+		padding-left: 25px;
+	}
+	.parental-rating-img{
+		width: 15%;
+		height: auto;
+	}
+	.ci-buttons{
+		width: 97%;
+		text-align: center;
+		margin: auto;
+	}
+	.ci-buttons a{
+		
+	}
+	.ci-buttons img{
+		width: 15%;
+		height: auto;
+	}
+</style>
+<ion-view hide-back-button="false">
+	<ion-nav-title>Classificação Indicativa</ion-nav-title>
+</ion-nav-buttons>
+  <ion-content class='has-header'>
+  	<div>
+  		<img class="parental-rating-icon" ng-src="{{urlClassIndicArray[clIndicativa]}}">
+		<h1 class="parental-rating-page-title page-title">Classificação Indicativa</h1>
+  	</div>
+  	<div class="ci-buttons clear">
+  		<img id="ci3" ng-click="ciToggle('3')" class="parental-rating-img" ng-src="{{clIndicativa == '3' ? urlClassIndicIndispArray[3] : urlClassIndicArray[3] }}">
+  		<img id="ci4" ng-click="ciToggle('4')" class="parental-rating-img" ng-src="{{clIndicativa == '4' ? urlClassIndicIndispArray[4] : urlClassIndicArray[4] }}">
+  		<img id="ci5" ng-click="ciToggle('5')" class="parental-rating-img" ng-src="{{clIndicativa == '5' ? urlClassIndicIndispArray[5] : urlClassIndicArray[5] }}">
+  		<img id="ci6" ng-click="ciToggle('6')" class="parental-rating-img" ng-src="{{clIndicativa == '6' ? urlClassIndicIndispArray[6] : urlClassIndicArray[6] }}">
+  		<img id="ci7" ng-click="ciToggle('7')" class="parental-rating-img" ng-src="{{clIndicativa == '7' ? urlClassIndicIndispArray[7] : urlClassIndicArray[7] }}">
+  		<img id="ci8" ng-click="ciToggle('8')" class="parental-rating-img" ng-src="{{clIndicativa == '8' ? urlClassIndicIndispArray[8] : urlClassIndicArray[8] }}">
+  	</div>
+	<div class="list" ng-repeat="trilha in trilhas">
+	    <a class="item item-body" ng-href="#/app/trilhas/{{trilha.ID}}" ng-click="setAndGo({{trilha}})">
+			<h2 class="track-title">{{trilha.TRACK_NAME}}</h2>
+			<h4 class="autor">{{trilha.A_F_NAME}} {{trilha.A_L_NAME}}</h4>
+			<div class="img-ci-note">
+				<div class="img-tracks">
+    				<img ng-src="{{trilha.ICON}}" src="{{trilha.ICON}}">
+				</div>
+	    		<div class="ci-note">
+	    			<img ng-src="{{urlClassIndicArray[trilha.PARENTAL_RATING]}}" class="img-ci">
+	    			<div ng-if="trilha.SCORE > 0" class="wrapper-note" style="background-image: url('img/backend_RATE_bg.png')">
+	    				<p >{{trilha.SCORE}}</p>
+    					<img style="opacity: 0.2;" ng-src="" src="img/backend_RATE_bg.png" class="img-note">
+	    			</div>
+	    			<div ng-if="!(trilha.SCORE > 0)" class="wrapper-note" style="background-image: url('img/Like_List.png');">
+	    				<p ng-if="trilha.SCORE > 0" >{{trilha.SCORE}}</p>
+    					<img style="opacity: 0.2;" ng-src="" src="img/backend_RATE_bg.png" class="img-note">
+	    			</div>
+	    		</div>
+			</div>
+			<p class="track-content clear">{{trilha.DESCRIPTION.substr(0,150)}}...</p>
+	    </a>
+    </div>
+  </ion-content>
+</ion-view>

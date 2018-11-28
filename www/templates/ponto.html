@@ -1,0 +1,84 @@
+<style type="text/css">
+  ion-header-bar > button.back-button{
+    display: block !important;
+  }
+  ion-header-bar > div.buttons.buttons-left.header-item, ion-header-bar > div.buttons.buttons-right.header-item{
+    display: none;
+  }
+  .simbolo{
+    max-width: 100%;
+    width: 70%;
+  }
+  .poi-content{
+    padding: 5px;
+  }
+  .poi-content img, .poi-content iframe{
+    max-width: 100%;
+    height: auto !important;
+  }
+  .bar-stable.bar.bar-header {
+    width: 80%; 
+  }
+</style>  
+<a ui-sref="app.denuncia({trilhaId: currentTrack.ID, pontoId: currentPoi.ID})" class="report {{descToggleEl}}"><h4>Denunciar</h4></a>
+<ion-view view-title="{{titlePage}}">
+    <ion-nav-title>Ponto</ion-nav-title>
+  <ion-content  class='has-header'>
+  <div class="header-expanded {{expanded}} clear" ng-click="descriptionToggle()">
+    <h1 class="page-title left">{{titlePage}}</h1>
+    <a class="desc-toogle-btn right" ng-if="showContent">
+      <img src="{{descToggleArrow}}" class="toggle-arrow">
+    </a>
+  </div>
+  <div ng-class="descClass" class="description {{descToggleEl}}">
+    <h3 class="autor">Trilha: {{currentTrack.TRACK_NAME}}</h2>
+    <h3 class="autor">Ponto capturado em: {{capturedOn | date : 'dd/MM/y'}}</h3>
+    <div id="map-poi-captured" ng-init="initMapsCaptured()" data-tap-disabled="true" class="map clear" ></div>
+    <div class="row header-row">
+      <button class="button button-full button-positive button-red" ng-click="launchNavigator()">Ir para o ponto</button>
+    </div>
+    
+  </div>
+  
+  <div class="poi-content clear" ng-bind-html="content" ng-if="showContent">
+  </div>
+  
+  <div ng-if="showCompass" class="clear {{explode}}">
+    <div >
+      <h2 class="page-title left">Chegue ao pont<a ng-click="capturarPontoDebug()" style="text-decoration: none; color: #A09D9D;">o</a></h2>
+      <div class="row header-row">
+        <div class="your-pos col col-50">
+          <h2>Sua Posição</h2>
+        </div>
+        <div class="poi-pos col col-50">
+          <h2>Posição do Ponto</h2>
+        </div>
+      </div>
+      <div class="lat-long row header-row">
+        <div class="col col-50">
+          <p class="lat-long-prefix">LAT: </p>
+          <p class="lat-long-value">{{myPos.lat}}</p>
+          <p class="lat-long-prefix">LONG: </p>
+          <p class="lat-long-value">{{myPos.long}}</p>
+
+        </div>
+        <div class="col col-50">
+          <p class="lat-long-prefix">LAT: </p>
+          <p class="lat-long-value">{{poi.LATITUDE}}</p>
+          <p class="lat-long-prefix">LONG: </p>
+          <p class="lat-long-value">{{poi.LONGITUDE}}</p>
+
+        </div>
+      </div>
+      <div class="">
+        <h1 class="distance">{{distanceToPoi}} Km</h1>
+        <div id="map-poi" ng-init="initMaps()" data-tap-disabled="true" class="clear" ></div>
+      </div>
+      <div class="row header-row">
+        <button class="button button-full button-positive button-red" ng-click="launchNavigator()">Ir para o ponto</button>
+      </div>
+      <div class="compass clear"></div>
+    </div>
+  </div>
+  </ion-content>
+</ion-view>

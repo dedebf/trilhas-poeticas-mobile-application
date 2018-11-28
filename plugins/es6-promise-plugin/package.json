@@ -1,0 +1,47 @@
+{
+  "_from": "git+https://github.com/vstirbu/PromisesPlugin.git",
+  "_id": "es6-promise-plugin@4.1.0",
+  "_inBundle": false,
+  "_integrity": "sha1-OIz+Tj1lUzWu3S3FbtsYa22ZUkw=",
+  "_location": "/es6-promise-plugin",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/vstirbu/PromisesPlugin.git",
+    "rawSpec": "https://github.com/vstirbu/PromisesPlugin.git",
+    "saveSpec": "git+https://github.com/vstirbu/PromisesPlugin.git",
+    "fetchSpec": "https://github.com/vstirbu/PromisesPlugin.git",
+    "gitCommittish": "master"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/vstirbu/PromisesPlugin.git#894ebffb0261857fa1873e647cc89e68abc07c08",
+  "_spec": "https://github.com/vstirbu/PromisesPlugin.git",
+  "_where": "/Users/dedebf/Documents/Dev/ionic/trilhasFinalBeta/node_modules",
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/vstirbu/PromisesPlugin/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "ES6-Promises polyfill for Cordova/PhoneGap",
+  "devDependencies": {
+    "es6-promise": "^4.1.0"
+  },
+  "ecosystem": "cordova",
+  "homepage": "https://github.com/vstirbu/PromisesPlugin#readme",
+  "license": "MIT",
+  "main": "www/promise.js",
+  "name": "es6-promise-plugin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vstirbu/PromisesPlugin.git"
+  },
+  "scripts": {
+    "build": "./build"
+  },
+  "version": "4.1.0"
+}

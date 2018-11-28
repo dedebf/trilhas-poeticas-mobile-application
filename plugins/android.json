@@ -1,0 +1,52 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "br.com.coletivopalavra.trilhaspoeticas"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "br.com.coletivopalavra.trilhaspoeticas"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "br.com.coletivopalavra.trilhaspoeticas"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "br.com.coletivopalavra.trilhaspoeticas"
+        },
+        "cordova-plugin-screen-orientation": {
+            "PACKAGE_NAME": "br.com.coletivopalavra.trilhaspoeticas"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "br.com.coletivopalavra.trilhaspoeticas"
+        },
+        "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "br.com.coletivopalavra.trilhaspoeticas"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "br.com.coletivopalavra.trilhaspoeticas"
+        },
+        "uk.co.workingedge.phonegap.plugin.launchnavigator": {
+            "PACKAGE_NAME": "br.com.coletivopalavra.trilhaspoeticas"
+        },
+        "cordova-plugin-google-analytics": {
+            "PACKAGE_NAME": "br.com.trilhaspoeticas"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-actionsheet": {
+            "PACKAGE_NAME": "br.com.coletivopalavra.trilhaspoeticas"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "br.com.coletivopalavra.trilhaspoeticas"
+        },
+        "es6-promise-plugin": {
+            "PACKAGE_NAME": "br.com.coletivopalavra.trilhaspoeticas"
+        }
+    }
+}

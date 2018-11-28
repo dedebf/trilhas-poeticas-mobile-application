@@ -1,0 +1,94 @@
+<style type="text/css">
+/*ion-header-bar > div.buttons.buttons-left.header-item{
+    display: block;
+}*/
+ion-header-bar > button.back-button{
+	display: block !important;
+}
+ion-header-bar > div.buttons.buttons-left.header-item, ion-header-bar > div.buttons.buttons-right.header-item{
+	display: none;
+}
+.autor-page .header-expanded{
+	position: relative;
+	overflow: hidden;
+}
+.autor-title-wrapper{
+	width: calc(100% - 20%);
+}
+.expanded .autor-title-wrapper {
+	width: 100%;
+}
+.autor-page-title{
+	width: 75%;
+}
+div.not-expanded .autor-img-container{
+	width: calc(20% - 10px);
+	height: 0;
+	padding-bottom: calc(20% - 10px);
+	border-radius: 50%;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	margin-left: 5px;
+	transition: height 0.25s ease-out;
+
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+div.expanded .autor-img-container{
+	width: calc(100% - 10px);
+	height: 0;
+	padding-bottom: calc(100% - 10px);
+	border-radius: 50%;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	margin-left: 5px;
+	transition: height 0.25s ease-in;
+}
+</style>
+<ion-view>
+</ion-nav-buttons>
+  <ion-content class='has-header autor-page'>
+  	<div class="header-expanded clear" ng-class="expanded" ng-click="descriptionToggle()">
+  		<a class="autor-img-container left" ng-style="{'background-image':'url('+author.ICON+')'}"></a>
+  		<div class="autor-title-wrapper right">
+			<h1 class="autor-page-title page-title left">{{trilhas[0].A_F_NAME}} {{trilhas[0].A_L_NAME}}</h1>
+			<a class="desc-toogle-btn right ">
+				<img src="{{descToggleArrow}}" class="toggle-arrow">
+			</a>
+  		</div>
+	</div>
+    <div ng-class="descClass" class="description">
+    	<p>{{author.descricao}}</p>
+    </div>
+	<div class="list" ng-repeat="trilha in trilhas">
+	    <a class="item item-body" ng-href="#/app/trilhas/{{trilha.ID}}" ng-click="setAndGo({{trilha}})">
+			<h2 class="track-title">{{trilha.TRACK_NAME}}</h2>
+			<h4 class="autor">{{trilha.A_F_NAME}} {{trilha.A_L_NAME}}</h4>
+			<div class="img-ci-note">
+				<div class="img-tracks">
+    				<img ng-src="{{trilha.ICON}}" src="{{trilha.ICON}}">
+				</div>
+	    		<div class="ci-note">
+	    			<img ng-src="{{urlClassIndicArray[trilha.PARENTAL_RATING]}}" class="img-ci">
+	    			<div ng-if="trilha.SCORE > 0" class="wrapper-note" style="background-image: url('img/backend_RATE_bg.png')">
+	    				<p >{{trilha.SCORE}}</p>
+    					<img style="opacity: 0.2;" ng-src="" src="img/backend_RATE_bg.png" class="img-note">
+	    			</div>
+	    			<div ng-if="!(trilha.SCORE > 0)" class="wrapper-note" style="background-image: url('img/Like_List.png');">
+	    				<p ng-if="trilha.SCORE > 0" >{{trilha.SCORE}}</p>
+    					<img style="opacity: 0.2;" ng-src="" src="img/backend_RATE_bg.png" class="img-note">
+	    			</div>
+	    		</div>
+			</div>
+			<p class="track-content clear">{{trilha.DESCRIPTION.substr(0,150)}}...</p>
+	    </a>
+    </div>
+  </ion-content>
+</ion-view>

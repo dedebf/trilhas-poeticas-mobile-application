@@ -1,0 +1,41 @@
+<style type="text/css">
+  ion-header-bar > button.back-button{
+    display: block !important;
+  }
+  ion-header-bar > div.buttons.buttons-left.header-item, ion-header-bar > div.buttons.buttons-right.header-item{
+    display: none;
+  }
+  .report-types span {
+    font-size: 14pt;
+    white-space: pre-wrap;
+    line-height: 22px;
+    display: inline-block;
+    width: 100%;
+  }
+</style>  
+<ion-view view-title="{{titlePage}}">
+    <ion-nav-title>Denunciar</ion-nav-title>
+  <ion-content  class='has-header'>
+  <div class="header-report">
+    <h1>Denunciar</h1>
+    <h3 ng-model="currentTrack.TRACK_NAME">Trilha: {{currentTrack.TRACK_NAME}}</h3>
+    <h3 ng-model="currentPoi.NAME" ng-if="currentPoi.NAME">Ponto: {{currentPoi.NAME}}</h3>
+    <h2 class="tipo-denuncia">Tipo da denúncia:</h2>
+  </div>
+  <div class="report-wrapper">
+    <ion-list>
+      <ion-radio class="report-types" ng-model="$parent.reportType" ng-value="'Conteúdo ofensivo'" selected="true">Conteúdo ofensivo</ion-radio>
+      <ion-radio class="report-types" ng-model="$parent.reportType" ng-value="'Conteúdo inadequado para a calssificação indicativa'">Conteúdo inadequado para a calssificação indicativa</ion-radio>
+      <ion-radio class="report-types" ng-model="$parent.reportType" ng-value="'Violação de direitos de autoria e uso'">Violação de direitos de autoria e uso</ion-radio>
+    </ion-list>
+    <div class="content-report">
+      <label class="item item-input">
+        <textarea ng-model="$parent.contentReport" placeholder="*DESCREVA A DENÚNCIA"></textarea>
+      </label>
+    </div>
+    <div class="row header-row">
+      <button class="button button-full button-positive button-red" ng-click="enviarDenuncia()">Enviar denúncia</button>
+    </div>
+  </div>
+  </ion-content>
+</ion-view>

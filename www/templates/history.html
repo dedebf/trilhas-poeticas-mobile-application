@@ -1,0 +1,73 @@
+<style type="text/css">
+	#info{
+		right: 0;
+		width: 67%;
+		height: 100%;
+		position: absolute;
+		bottom: 0;
+	}
+	.history a.item{
+		border: 0;
+		margin-top: 40px;
+		overflow: hidden;
+		width: 100%;
+	}
+	.history h2{
+		color: #991B3E;
+		margin-top: 5px !important;
+	}
+	.img-tracks-history{
+		position: relative;
+		float: left;
+		width: 30%;
+		padding-bottom: 30%;
+		height: 0;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+	}
+	.img-tracks-history img{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+	#info h3.history-track-name{
+		color: rgb(76, 10, 31);
+		text-transform: lowercase;
+		padding-bottom: 5px;
+
+	}
+	#info h3.date{
+		color: rgb(76, 10, 31);
+	}
+	#info h3.history-track-name, #info h4{
+		margin: 0;
+	}
+	#info .track-date{
+		position: absolute;
+		width: 100%;
+		bottom: 0;
+	}
+</style>
+<ion-view view-title="Trilha">
+	<ion-nav-title>Histórico</ion-nav-title>
+  	<ion-content class='has-header history'>
+  		<h1 class="page-title left">Histórico</h1>
+  		<div class="list" ng-repeat="poi in pois | orderBy : '-CAPTURED_ON'">
+  			<!-- <a class="item item-body" ng-href="#/app/trilhas/{{poi.TRACK}}"> -->
+  			<a class="item item-body" ng-click="poiClick(poi)">
+				<div class="img-tracks-history" ng-style="{'background-image':'url('+tracks[poi.TRACK].ICON+')'}">
+    				<img src="img/mascara_hist.png">
+				</div>
+  				<div id="info">
+			  		<h2 class="track-title title-history" ng-if="poi.NAME">{{poi.NAME}}</h2>
+			  		<!-- <h2 class="track-title title-history" ng-if="!poi.NAME" >"Sem título"</h2> -->
+			  		<div class="track-date">
+						<h3 class="history-track-name">{{tracks[poi.TRACK].TRACK_NAME}}</h3>
+						<h4 class="date">{{poi.CAPTURED_ON | date : 'dd/MM/y HH:mm'}}</h4>
+			  		</div>
+  				</div>
+  			</a>
+  		</div>
+  	</ion-content>
+</ion-view>

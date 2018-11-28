@@ -1,0 +1,86 @@
+<ion-side-menus enable-menu-with-back-views="true">
+  
+  <ion-side-menu-content drag-content="false">
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+      <ion-nav-buttons side="right">
+        <button class="button button-icon button-filters button-clear ion-navicon" menu-toggle="right" ng-if="hasFilter">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-stable">
+      <h1 class="title menu-title">Menu</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <ion-item class="menu-item" ui-sref-active="active" menu-close ui-sref="app.trilhas">
+          Trilhas
+        </ion-item>
+        <ion-item class="menu-item" ui-sref-active="active" menu-close ui-sref="app.history">
+          Histórico
+        </ion-item>
+        </br>
+        <ion-item class="menu-item" menu-close onclick="window.open('http://trilhaspoeticas.com.br/#sobre', '_system', 'location=yes')">
+          Sobre
+        </ion-item>
+        <ion-item class="menu-item" ui-sref-active="active" menu-close ui-sref="app.tour">
+          Ajuda
+        </ion-item>
+        <ion-item class="menu-item" onclick="window.open('http://trilhaspoeticas.com.br/termosapp', '_system', 'location=yes')">
+          Termos de Uso e Política de Privacidade
+        </ion-item>
+        <ion-item class="menu-item email-user" ng-if="!userEmail" ng-click="login()">
+          Cadastrar email
+        </ion-item>
+        <ion-item class="menu-item email-user" ng-if="userEmail" ng-click="login()">
+          Email {{userEmail}}
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+
+  <ion-side-menu side="right">
+    <ion-header-bar class="bar-stable">
+      <h1 class="title">Filtros</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <ion-item>
+          <ion-list>
+            <ion-radio name="order" ng-model="$root.fieldFilter" ng-value="'-MODIFIED_ON'">Últimas</ion-radio>
+            <ion-radio name="order" ng-model="$root.fieldFilter" ng-value="'DISTANCE'">Nas redondezas</ion-radio>
+          </ion-list>
+        </ion-item>
+        <ion-item>
+          <ion-list>
+            <ion-radio name="filter" ng-model="$root.statusFilter" ng-value="''">Todas</ion-radio>
+            <ion-radio name="filter" ng-model="$root.statusFilter" ng-value="'NEW'">Não iniciadas</ion-radio>
+            <ion-radio name="filter" ng-model="$root.statusFilter" ng-value="'STARTED'">Trilhando</ion-radio>
+            <ion-radio name="filter" ng-model="$root.statusFilter" ng-value="'FINISHED'">Finalizadas</ion-radio>
+          </ion-list>
+        </ion-item>
+        <ion-item class="filter-parental">
+            <div class="ci-buttons clear">
+              <img id="ci3" ng-click="statusFilterParentalToggle('3')" class="parental-rating-img" ng-src="{{statusFilterParental == '3' ? urlClassIndicIndispArray[3] : urlClassIndicArray[3] }}">
+              <img id="ci4" ng-click="statusFilterParentalToggle('4')" class="parental-rating-img" ng-src="{{statusFilterParental == '4' ? urlClassIndicIndispArray[4] : urlClassIndicArray[4] }}">
+              <img id="ci5" ng-click="statusFilterParentalToggle('5')" class="parental-rating-img" ng-src="{{statusFilterParental == '5' ? urlClassIndicIndispArray[5] : urlClassIndicArray[5] }}">
+              <img id="ci6" ng-click="statusFilterParentalToggle('6')" class="parental-rating-img" ng-src="{{statusFilterParental == '6' ? urlClassIndicIndispArray[6] : urlClassIndicArray[6] }}">
+              <img id="ci7" ng-click="statusFilterParentalToggle('7')" class="parental-rating-img" ng-src="{{statusFilterParental == '7' ? urlClassIndicIndispArray[7] : urlClassIndicArray[7] }}">
+              <img id="ci8" ng-click="statusFilterParentalToggle('8')" class="parental-rating-img" ng-src="{{statusFilterParental == '8' ? urlClassIndicIndispArray[8] : urlClassIndicArray[8] }}">
+            </div>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+  
+</ion-side-menus>

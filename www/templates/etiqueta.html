@@ -1,0 +1,42 @@
+<style type="text/css">
+	ion-header-bar > button.back-button{
+		display: block !important;
+	}
+	ion-header-bar > div.buttons.buttons-left.header-item, ion-header-bar > div.buttons.buttons-right.header-item{
+		display: none;
+	}
+	.tag-page .page-title{
+		width: 100%;
+		line-height: 85px;
+	}
+</style>
+<ion-view hide-back-button="false">
+	<ion-nav-title>Etiqueta</ion-nav-title>
+</ion-nav-buttons>
+  <ion-content class='has-header tag-page'>
+	<h1 class="page-title">#{{etiqueta}}</h1>
+	<div class="list" ng-repeat="trilha in trilhas">
+	    <a class="item item-body" ng-href="#/app/trilhas/{{trilha.ID}}" ng-click="setAndGo({{trilha}})">
+			<h2 class="track-title">{{trilha.TRACK_NAME}}</h2>
+			<h4 class="autor">{{trilha.A_F_NAME}} {{trilha.A_L_NAME}}</h4>
+			<div class="img-ci-note">
+				<div class="img-tracks">
+    				<img ng-src="{{trilha.ICON}}" src="{{trilha.ICON}}">
+				</div>
+	    		<div class="ci-note">
+	    			<img ng-src="{{urlClassIndicArray[trilha.PARENTAL_RATING]}}" class="img-ci">
+	    			<div ng-if="trilha.SCORE > 0" class="wrapper-note" style="background-image: url('img/backend_RATE_bg.png')">
+	    				<p >{{trilha.SCORE}}</p>
+    					<img style="opacity: 0.2;" ng-src="" src="img/backend_RATE_bg.png" class="img-note">
+	    			</div>
+	    			<div ng-if="!(trilha.SCORE > 0)" class="wrapper-note" style="background-image: url('img/Like_List.png');">
+	    				<p ng-if="trilha.SCORE > 0" >{{trilha.SCORE}}</p>
+    					<img style="opacity: 0.2;" ng-src="" src="img/backend_RATE_bg.png" class="img-note">
+	    			</div>
+	    		</div>
+			</div>
+			<p class="track-content clear">{{trilha.DESCRIPTION.substr(0,150)}}...</p>
+	    </a>
+    </div>
+  </ion-content>
+</ion-view>

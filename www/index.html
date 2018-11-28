@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- <link href="css/media-screen.css" rel="stylesheet"> -->
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/controllers/LoadingCtrl.js"></script>
+    <script src="js/services/SqlUtilsService.js"></script>
+    <script src="js/services/InternetUtilsService.js"></script>
+    <script src="js/services/GpsUtilsService.js"></script>
+    <script src="js/controllers/TrilhasCtrl.js"></script>
+    <script src="js/services/TrilhasService.js"></script>
+    <script src="js/controllers/TrilhaCtrl.js"></script>
+    <script src="js/services/PoiService.js"></script>
+    <script src="js/controllers/PoiCtrl.js"></script>
+    <script src="js/services/AuthorService.js"></script>
+    <script src="js/controllers/AutorCtrl.js"></script>
+    <script src="js/controllers/EtiquetaCtrl.js"></script>
+    <script src="js/controllers/ClIndicativaCtrl.js"></script>
+    <script src="js/controllers/HistoryCtrl.js"></script>
+    <script src="js/controllers/DenunciaCtrl.js"></script>
+
+    <script src="https://maps.google.com/maps/api/js?sensor=true&key=AIzaSyCEfUGsJxvCd9zE8EZEd9ug_d3gFKB7igY"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="700781591503-lha2okillijh1kjin5q8l4f4snk2t8gl.apps.googleusercontent.com">
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+          i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+          }, i[r].l = 1 * new Date(); a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'http://www.google-analytics.com/analytics.js', 'ga');
+      </script>
+  </head>
+
+  <body ng-app="starter">
+    <ion-nav-view></ion-nav-view>
+  </body>
+</html>

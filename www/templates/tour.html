@@ -1,0 +1,120 @@
+<style type="text/css">
+  .platform-ios .scroll-content{
+    top: 25px;
+  }
+  .slider {
+    height: 100%;
+  }
+  .slider-slide {
+    /*overflow-y: overlay;*/
+    color: #000;
+    background-color: #fff;
+    text-align: center;
+
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
+  }
+
+  #logo {
+    margin: 30px 0px;
+  }
+
+  #list {
+    width: 170px;
+    margin: 30px auto;
+    font-size: 20px;
+  }
+  #list ol {
+    margin-top: 30px;
+  }
+  #list ol li {
+    text-align: left;
+    list-style: decimal;
+    margin: 10px 0px;
+  }
+
+  .button.ng-hide{
+    display:none;
+  }
+  .tour-bt-right{
+    position: absolute;
+    top: 0;
+    right: 10px;
+  }
+  .tour-image{
+    
+  }
+  .tour-image img{
+    width: 100%;
+  }
+  .last-slide img{
+    padding-top: 100px;
+    margin-bottom: -100px;
+  }
+  .skip-intro, .tour-bt{
+    margin: 5px;
+  }
+  .skip-intro{
+    color: #991B3E;
+  }
+  .tour-bt{
+    color: #60CAE6;
+  }
+</style>
+<ion-view id="tour" view-title="Intro">
+  <ion-content  class=''>
+    <div side="left">
+      <a class="skip-intro" ng-click="startApp()" ng-show="!slideIndex">
+        X  PULAR INTRODUÇÃO
+      </a>
+      <a class="tour-bt" ng-click="previous()" ng-show="slideIndex > 0">
+        <  SLIDE ANTERIOR
+      </a>
+    </div>
+    <div class="tour-bt-right" side="right"> 
+      <a class="tour-bt" ng-click="next()" ng-show="slideIndex > 0 && slideIndex < 5">
+        PRÓXIMO SLIDE  >
+      </a>
+      <a class="tour-bt" ng-click="startApp()" ng-show="slideIndex == 5">
+        Iniciar App  >
+      </a>
+      <a class="tour-bt" ng-click="next()" ng-show="!slideIndex">
+        INICIAR  >
+      </a>
+    </div>
+    <ion-slide-box on-slide-changed="slideChanged(index)">
+      <ion-slide>
+        <div class="tour-image">
+          <a class="tour-image" ng-click="next()">
+            <img src="img/tour1.png">
+          </a>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="tour-image">
+          <img src="img/tour2.png">
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="tour-image">
+          <img src="img/tour3.png">
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="tour-image">
+          <img src="img/tour4.png">
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="tour-image">
+          <img src="img/tour5.png">
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="tour-image last-slide" ng-click="startApp()">
+          <img src="img/tour6.png">
+        </div>
+      </ion-slide>
+    </ion-slide-box>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,31 @@
+<ion-view>
+  <ion-content class='has-header tracks'>
+  <ion-refresher
+    pulling-text="Atualizar..."
+    on-refresh="getTracks()">
+  </ion-refresher>
+	<h1 class="page-title">Trilhas</h1>
+	<div class="list" ng-repeat="trilha in trilhas | orderBy:$root.fieldFilter | filter:{STATUS:statusFilter} | filter:{PARENTAL_RATING:statusFilterParental}">
+	    <a class="item item-body" ng-href="#/app/trilhas/{{trilha.ID}}" ng-click="setAndGo({{trilha}})">
+			<h2 class="track-title">{{trilha.TRACK_NAME}}</h2>
+			<h4 class="autor">{{trilha.A_F_NAME}} {{trilha.A_L_NAME}}</h4>
+			<div class="img-ci-note">
+				<div class="img-tracks">
+    				<img ng-src="{{trilha.ICON}}" src="{{trilha.ICON}}">
+				</div>
+	    		<div class="ci-note">
+	    			<img ng-src="{{urlClassIndicArray[trilha.PARENTAL_RATING]}}" class="img-ci">
+	    			<div ng-if="trilha.SCORE > 0" class="wrapper-note" style="background-image: url('img/backend_RATE_bg.png')">
+	    				<p >{{trilha.SCORE}}</p>
+    					<img style="opacity: 0.2;" ng-src="" src="img/backend_RATE_bg.png" class="img-note">
+	    			</div>
+	    			<div ng-if="!(trilha.SCORE > 0)" class="wrapper-note" style="background-image: url('img/Like_List.png');">
+    					<img style="opacity: 0.2;" ng-src="" src="img/backend_RATE_bg.png" class="img-note">
+	    			</div>
+	    		</div>
+			</div>
+			<p class="track-content clear">{{trilha.DESCRIPTION.substr(0,150)}}...</p>
+	    </a>
+    </div>
+  </ion-content>
+</ion-view>
