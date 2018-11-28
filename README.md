@@ -15,7 +15,7 @@ Este projeto é baseado no framework [Ionic versão 1](https://ionicframework.co
 		- `$ ionic cordova build android`
 		- Rodar no emulador do Android `$ ionic cordova emulate android` 
 		- Rodar no dispositivo Android `$ ionic cordova run android` 
-	1. iOS - execute os comandos:
+	0. iOS - execute os comandos:
 		- `$ ionic cordova prepare ios`
 		- `$ ionic cordova build ios`
 		- Rodar no emulador do iOS `$ ionic cordova emulate ios` 
